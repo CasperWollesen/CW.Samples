@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="WcfExampleService\Client\WcfExampleServiceClientBase.cs" />
+    <Compile Include="WcfExampleService\Host\WcfExampleServiceHostBase.cs" />
+    <Compile Include="WcfExampleService\Host\WcfExampleServiceHostServicesModel.cs" />
     <Compile Include="WcfExampleService\Interface\IWcfExampleService.cs" />
     <Compile Include="WcfExampleService\Models\WcfExampleServiceModels.cs" />
     <Compile Include="WcfExampleService\Service\WcfExampleService.cs" />
@@ -56,8 +58,8 @@
     <Compile Include="WcfExampleService\UnitTests\WcfExampleServiceUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Documentation\WCF CodeSnippets.txt" />
-    <Content Include="Documentation\WCF Guide.txt" />
+    <Content Include="WcfExampleService\Documentation\WCF CodeSnippets.txt" />
+    <Content Include="WcfExampleService\Documentation\WCF Guide.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
