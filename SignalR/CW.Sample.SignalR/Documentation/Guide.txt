@@ -1,0 +1,5 @@
+﻿https://github.com/SignalR/SignalR/wiki/SignalR-Client
+
+Install-Package Microsoft.Owin.Hosting -pre
+Install-Package Microsoft.Owin.Host.HttpListener -pre
+Install-Package Microsoft.AspNet.SignalR.Owin
