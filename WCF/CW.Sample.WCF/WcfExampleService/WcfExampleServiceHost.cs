@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
-using Shared.WcfExampleService.Interface;
+using CW.Sample.WCF.WcfExampleService.Interface;
 
-namespace Shared.WcfExampleService
+namespace CW.Sample.WCF.WcfExampleService
 {
     public class WcfExampleServiceHost : IDisposable
     {
@@ -10,7 +10,7 @@ namespace Shared.WcfExampleService
 
         public void Start()
         {
-            _host = new ServiceHost(typeof (WcfExampleService));
+            _host = new ServiceHost(typeof (CW.Sample.WCF.WcfExampleService.WcfExampleService));
             _host.AddServiceEndpoint(typeof(IWcfExampleService), WcfExampleServiceConfig.CreateBinding(), WcfExampleServiceConfig.CreateUrl("localhost:10000"));
             _host.Open();
         }

@@ -1,9 +1,9 @@
 ﻿using System.ServiceModel;
 using System.Threading.Tasks;
-using Shared.WcfExampleService.Interface;
-using Shared.WcfExampleService.Models;
+using CW.Sample.WCF.WcfExampleService.Interface;
+using CW.Sample.WCF.WcfExampleService.Models;
 
-namespace Shared.WcfExampleService
+namespace CW.Sample.WCF.WcfExampleService
 {
     public class WcfExampleServiceAsyncClient : ClientBase<IWcfExampleServiceAsync>, IWcfExampleServiceAsync
     {

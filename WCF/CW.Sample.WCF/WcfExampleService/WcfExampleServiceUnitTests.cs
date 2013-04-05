@@ -1,8 +1,8 @@
 ﻿using System.ServiceModel;
+using CW.Sample.WCF.WcfExampleService.Models;
 using NUnit.Framework;
-using Shared.WcfExampleService.Models;
 
-namespace Shared.WcfExampleService
+namespace CW.Sample.WCF.WcfExampleService
 {
     [TestFixture]
     public class WcfExampleServiceUnitTests

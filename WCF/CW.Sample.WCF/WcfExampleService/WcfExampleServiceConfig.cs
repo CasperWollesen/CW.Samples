@@ -2,7 +2,7 @@
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 
-namespace Shared.WcfExampleService
+namespace CW.Sample.WCF.WcfExampleService
 {
     public class WcfExampleServiceConfig : WcfCoreServiceConfig
     {

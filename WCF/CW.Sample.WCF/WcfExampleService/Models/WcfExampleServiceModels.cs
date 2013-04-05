@@ -1,4 +1,4 @@
-﻿namespace Shared.WcfExampleService.Models
+﻿namespace CW.Sample.WCF.WcfExampleService.Models
 {
     public class SimpleTaskMethodResponseModel
     {

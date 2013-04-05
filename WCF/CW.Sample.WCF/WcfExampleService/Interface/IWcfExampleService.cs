@@ -1,8 +1,8 @@
 ﻿using System.ServiceModel;
 using System.Threading.Tasks;
-using Shared.WcfExampleService.Models;
+using CW.Sample.WCF.WcfExampleService.Models;
 
-namespace Shared.WcfExampleService.Interface
+namespace CW.Sample.WCF.WcfExampleService.Interface
 {
     /// <summary>
     /// This interface is created for demostration the difference possibilites to create a WcfService with sync and async support.
