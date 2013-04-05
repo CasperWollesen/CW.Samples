@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateNewServiceWithWcfExampleService\CreateNewService.cs" />
     <Compile Include="WcfExampleService\Client\WcfExampleServiceClientBase.cs" />
     <Compile Include="WcfExampleService\Host\WcfExampleServiceHostBase.cs" />
     <Compile Include="WcfExampleService\Host\WcfExampleServiceHostServicesModel.cs" />
@@ -56,10 +57,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WcfExampleService\Host\WcfExampleServiceHost.cs" />
     <Compile Include="WcfExampleService\UnitTests\WcfExampleServiceUnitTests.cs" />
+    <Compile Include="WcfExampleService\UnitTests\WcfExampleServiceUnitTestsProblem.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WcfExampleService\Documentation\WCF CodeSnippets.txt" />
-    <Content Include="WcfExampleService\Documentation\WCF Guide.txt" />
+    <Content Include="Documentation\WCF CodeSnippets.txt" />
+    <Content Include="Documentation\WCF Guide.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

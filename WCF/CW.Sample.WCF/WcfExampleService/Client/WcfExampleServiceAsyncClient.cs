@@ -4,7 +4,7 @@ using CW.Sample.WCF.WcfExampleService.Models;
 
 namespace CW.Sample.WCF.WcfExampleService.Client
 {
-    public class WcfExampleServiceAsyncClient : WcfExampleServiceClientBase<IWcfExampleServiceAsync>
+    public class WcfExampleServiceAsyncClient : WcfExampleServiceClientBase<IWcfExampleServiceAsync>, IWcfExampleServiceAsync
     {
         public WcfExampleServiceAsyncClient(string address) :
             base(address)

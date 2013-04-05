@@ -25,7 +25,6 @@ namespace CW.Sample.WCF.WcfExampleService.Config
         {
             return new EndpointAddress(CreateUrl(string.Format("{0}:{1}", address, port)));
         }
-
     }
 
     public class WcfCoreServiceConfig
