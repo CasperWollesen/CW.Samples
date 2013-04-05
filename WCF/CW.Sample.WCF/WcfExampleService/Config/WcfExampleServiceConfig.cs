@@ -1,4 +1,5 @@
-﻿using System.Net.Security;
+﻿using System;
+using System.Net.Security;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 
@@ -9,7 +10,7 @@ namespace CW.Sample.WCF.WcfExampleService.Config
         public const string Namespace = "http://www.softogteknik.dk/mes";
         public const string ContractName = "WcfExampleService";
         public const string Url = Namespace + "/" + ContractName + "/";
-      
+
         public static string CreateUrl(string host)
         {
             return CreateUrl(host, ContractName);
@@ -39,9 +40,17 @@ namespace CW.Sample.WCF.WcfExampleService.Config
             tcpBinding.MaxReceivedMessageSize = int.MaxValue;
             tcpBinding.MaxBufferSize = int.MaxValue;
 
+            var defaultSendReceiveTimeout = TimeSpan.FromSeconds(10);
+            tcpBinding.SendTimeout = defaultSendReceiveTimeout;
+            tcpBinding.ReceiveTimeout = defaultSendReceiveTimeout;
+            
+            var defaultOpenCloseTimeout = TimeSpan.FromSeconds(5);
+            tcpBinding.CloseTimeout = defaultOpenCloseTimeout;
+            tcpBinding.OpenTimeout = defaultOpenCloseTimeout;
+
             return tcpBinding;
-        }    
-        
+        }
+
         public static string CreateUrl(string host, string contractName)
         {
             return "net.tcp://" + host + "/" + contractName + "/";

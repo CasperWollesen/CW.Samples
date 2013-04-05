@@ -1,4 +1,3 @@
-﻿Todo:
-Create UnitTest
-Create Client BaseClass for automaticly create tcp binding.
-Create Server BaseClass for automaticly create tcp binding.
+﻿https://github.com/dotnetcurry/wcf-whats-new-part2
+http://blogs.msdn.com/b/endpoint/archive/2010/11/13/simplified-asynchronous-programming-model-in-wcf-with-async-await.aspx
+

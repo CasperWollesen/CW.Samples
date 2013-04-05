@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.ServiceModel;
+using System.Threading.Tasks;
 using CW.Sample.WCF.WcfExampleService.Client;
 using CW.Sample.WCF.WcfExampleService.Host;
 using CW.Sample.WCF.WcfExampleService.Models;
@@ -25,20 +27,76 @@ namespace CW.Sample.WCF.WcfExampleService.UnitTests
             }
         }
 
+
+        /// <summary>
+        /// Important, this test case only throws an exception, when StartHostAndClient_SimpleSyncMethodSyncCallWithAsync_ThrowsException has async 
+        /// and calss SimpleSyncMethod called sync.
+        /// </summary>
         [Test]
-        public async void StartHostAndClient_SimpleSyncMethodSyncCallWithAsync_Success()
+        public async void StartHostAndClient_SimpleSyncMethodSyncCallWithAsync_ThrowsException()
         {
             using (var host = new WcfExampleServiceHost("localhost:10000"))
             {
                 host.Start();
 
                 var client = new WcfExampleServiceAsyncClient("localhost:10000");
-                SimpleSyncMethodResponseModel responseSimpleSyncMethod = client.SimpleSyncMethod(new SimpleSyncMethodRequestModel { Message = "Hello World" });
-                Assert.IsNotNull(responseSimpleSyncMethod);
-                Assert.AreEqual("SimpleSyncMethod: Hello World", responseSimpleSyncMethod.Message);
+                SimpleSyncMethodResponseModel responseSimpleSyncMethod = null;
+                Assert.Throws<CommunicationException>(() =>
+                    {
+                        try
+                        {
+                            responseSimpleSyncMethod = client.SimpleSyncMethod(new SimpleSyncMethodRequestModel { Message = "Hello World" });        
+                        }
+                        catch (Exception ex)
+                        {
+                            throw;
+                        }
+                        
+                    });
+                
+                Assert.IsNull(responseSimpleSyncMethod);
 
                 host.Close();
             }
+        }
+
+        /// <summary>
+        /// Very important, if host is started on same thread as client, and client is called on Sync method, then it will time out.
+        /// See StartHostAndClient_SimpleSyncMethodSyncCallWithAsync_ThrowsException.
+        /// Solution is to start Host on another thread.
+        /// </summary>
+        [Test]
+        public async void StartHostAndClient_SimpleSyncMethodSyncCallWithAsync_Success()
+        {
+            bool @continue = false;
+            var thread = new System.Threading.Thread(() =>
+            {
+                using (var host = new WcfExampleServiceHost("localhost:10000"))
+                {
+                    host.Start();
+                    @continue = true;
+                    while (@continue)
+                    {
+                        System.Threading.Thread.Sleep(10);
+                    }
+                    host.Close();
+                }
+            });
+            thread.Start();
+
+            while (!@continue)
+            {
+                System.Threading.Thread.Sleep(10);
+            }
+
+            var client = new WcfExampleServiceAsyncClient("localhost:10000");
+            SimpleSyncMethodResponseModel responseSimpleSyncMethod = client.SimpleSyncMethod(new SimpleSyncMethodRequestModel { Message = "Hello World" });
+            Assert.IsNotNull(responseSimpleSyncMethod);
+            Assert.AreEqual("SimpleSyncMethod: Hello World", responseSimpleSyncMethod.Message);
+
+            @continue = false;
+
+            thread.Join();
         }
 
         [Test]
@@ -65,12 +123,12 @@ namespace CW.Sample.WCF.WcfExampleService.UnitTests
                 host.Start();
 
                 var client = new WcfExampleServiceAsyncClient("localhost:10000");
-                
+
                 SimpleTaskMethodResponseModel responseSimpleTaskMethod = await client.SimpleTaskMethod(new SimpleTaskMethodRequestModel { Size = 100 });
                 Assert.IsNotNull(responseSimpleTaskMethod);
                 Assert.IsNotNull(responseSimpleTaskMethod.Result);
                 Assert.AreEqual(100, responseSimpleTaskMethod.Result.Length);
-                
+
                 host.Close();
             }
         }
@@ -88,9 +146,9 @@ namespace CW.Sample.WCF.WcfExampleService.UnitTests
                 Assert.IsNotNull(responseSimpleTaskMethod);
 
                 await responseSimpleTaskMethod;
-            
+
                 Assert.IsTrue(responseSimpleTaskMethod.IsCompleted);
-                Assert.IsFalse(responseSimpleTaskMethod.IsCanceled); 
+                Assert.IsFalse(responseSimpleTaskMethod.IsCanceled);
                 Assert.IsFalse(responseSimpleTaskMethod.IsFaulted);
 
                 Assert.IsNotNull(responseSimpleTaskMethod.Result);
