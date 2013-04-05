@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Owin;
 
-namespace CW.Sample.SignalR.SelfHosting
+namespace CW.Sample.SignalR.SelfHosting.Hubs
 {
     public class Startup
     {

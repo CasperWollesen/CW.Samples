@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Hubs;
 
 namespace CW.Sample.SignalR.SelfHosting.Hubs
 {
+    [HubName("SignalrExampleHub")]
     public class SignalrExampleHub : Hub
     {
         public SignalrExampleHub()
@@ -10,12 +12,14 @@ namespace CW.Sample.SignalR.SelfHosting.Hubs
 
         public void BroadcastSignalrMethod(BroadcastSignalrMethodModel model)
         {
-            Clients.All.BroadcastSignalrMethod(model);
+            System.Diagnostics.Debug.WriteLine("SignalrExampleHub: BroadcastSignalrMethod");
+            Clients.All.broadcastSignalrMethod(model);
         }
 
-        public SimpleSignalrMethodResponseModel SimpleSignalrMethod(SimpleSignalrMethodRequestModel request)
+        public SimpleSignalrMethodResponseModel SimpleSignalrMethodx(SimpleSignalrMethodRequestModel request)
         {
-            return new SimpleSignalrMethodResponseModel {Message = request.Message};
+            System.Diagnostics.Debug.WriteLine("SignalrExampleHub: SimpleSignalrMethod");
+            return new SimpleSignalrMethodResponseModel {Message = request.Message.ToLower() };
         }
     }
 

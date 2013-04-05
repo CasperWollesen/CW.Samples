@@ -1,62 +1,124 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading.Tasks;
+using CW.Sample.SignalR.SelfHosting.Hubs;
+using Microsoft.AspNet.SignalR.Client;
 using Microsoft.AspNet.SignalR.Client.Hubs;
-using Microsoft.Owin.Hosting;
 
 namespace CW.Sample.SignalR.SelfHosting
 {
-    public class SignalrExampleHost
-    {
-        public void Start()
-        {
-            using (WebApplication.Start<Startup>(url))
-            {
-                Console.WriteLine("Server running on {0}", url);
-                // Console.ReadLine();
-                bool @continue = true;
-                while (@continue && sleep)
-                {
-                    System.Threading.Thread.Sleep(500);
-                }
-            }   
-        }
-    }
-
     public class SignalrExampleClient
     {
         private readonly string _address;
 
-        public bool Active { get; set; }
-
-        public Thread Thread { get; private set; }
         public HubConnection Connection { get; private set; }
-        
+        public IHubProxy Proxy { get; private set; }
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="address">Ex. http://localhost:8080/</param>
-        public SignalrExampleClient(string address)
+        /// <param name="name"></param>
+        public SignalrExampleClient(string address, string name)
         {
             _address = address;
+            _name = name; 
         }
-        
-        private void ThreadStart()
-        {
-            Active = true;
-            Connection = new HubConnection(_address);
-            Connection.Start();
 
-            while (Active)
+
+        private bool _ready;
+        private string _name;
+
+        private void Debug(string message)
+        {
+            System.Diagnostics.Debug.WriteLine( string.Format("{0}: {1}", _name, message) );
+        }
+
+        public async Task<int> Initialize()
+        {
+            if (!_ready)
             {
-                Thread.Sleep(10);
+                if (Connection == null)
+                {
+                    Connection = new HubConnection(_address);
+
+                    Connection.Closed += delegate { Debug("Closed"); };
+                    Connection.Error += delegate(Exception exception) { Debug("Error: " + exception); };
+                    Connection.Received += delegate(string s) { Debug("Received: " + s.Substring(10) ); };
+                    Connection.Reconnected += () => Debug("Reconnected");
+                    Connection.Reconnecting += () => Debug("Reconnecting");
+                    Connection.StateChanged += delegate(StateChange change) { Debug( string.Format("StateChanged: Old: {0}, New: {1}", change.OldState, change.NewState)); };
+
+                    Proxy = Connection.CreateHubProxy("SignalrExampleHub");
+
+                    Proxy.On<BroadcastSignalrMethodModel>("broadcastSignalrMethod", OnBroadcastSignalrMethod);
+
+                    await Connection.Start();
+
+                    _ready = true;
+                }
             }
+
+            return 0;
         }
 
-        public async void Start()
+       
+        public async Task<int> BroadcastSignalrMethod(BroadcastSignalrMethodModel model)
         {
-            Thread = new Thread(ThreadStart);
-            Thread.Start();
+            await Initialize();
+
+            if (Proxy != null)
+            {
+                await Proxy.Invoke<BroadcastSignalrMethodModel>("broadcastSignalrMethod", model);
+            }
+
+            return 0;
         }
+
+        public async Task<SimpleSignalrMethodResponseModel> SimpleSignalrMethod(SimpleSignalrMethodRequestModel request)
+        {
+            try
+            {
+                await Initialize();
+
+                if (Proxy != null)
+                {
+                    SimpleSignalrMethodResponseModel responseModel = await Proxy.Invoke<SimpleSignalrMethodResponseModel>("simpleSignalrMethodx", request);
+
+                    Debug(string.Format("SimpleSignalrMethod, Message: {0}", responseModel.Message));
+
+                    /*
+                             .ContinueWith(task =>
+                             {
+                                 responseModel = task.Result;
+                                 Debug(string.Format("Message: {0}", responseModel.Message));
+                             });
+                    */
+                    return responseModel;
+                }
+
+                
+
+            }
+            catch (Exception ex)
+            {
+                Debug(string.Format("SimpleSignalrMethod Exception: {0}", ex)); 
+            }
+
+            return null;
+            
+        }
+
+        private void OnBroadcastSignalrMethod(BroadcastSignalrMethodModel model)
+        {
+            Debug(string.Format("OnBroadcastSignalrMethod, Message: {0}", model.Message));
+        }
+
+        
+       
+
+        
     }
+}
 
     /*
     
@@ -126,4 +188,4 @@ namespace CW.Sample.SignalR.SelfHosting
             }
         }
     */
-}
+
