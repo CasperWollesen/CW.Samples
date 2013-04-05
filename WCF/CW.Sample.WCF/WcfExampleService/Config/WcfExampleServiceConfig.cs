@@ -2,7 +2,7 @@
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 
-namespace CW.Sample.WCF.WcfExampleService
+namespace CW.Sample.WCF.WcfExampleService.Config
 {
     public class WcfExampleServiceConfig : WcfCoreServiceConfig
     {
@@ -14,6 +14,17 @@ namespace CW.Sample.WCF.WcfExampleService
         {
             return CreateUrl(host, ContractName);
         }
+
+        public static EndpointAddress CreateEndpointAddress(string address)
+        {
+            return new EndpointAddress(CreateUrl(address));
+        }
+
+        public static EndpointAddress CreateEndpointAddress(string address, int port)
+        {
+            return new EndpointAddress(CreateUrl(string.Format("{0}:{1}", address, port)));
+        }
+
     }
 
     public class WcfCoreServiceConfig

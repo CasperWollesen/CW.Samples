@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using CW.Sample.WCF.WcfExampleService.Interface;
 using CW.Sample.WCF.WcfExampleService.Models;
 
-namespace CW.Sample.WCF.WcfExampleService
+namespace CW.Sample.WCF.WcfExampleService.Service
 {
     public class WcfExampleService : IWcfExampleService
     {

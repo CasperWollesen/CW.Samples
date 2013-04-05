@@ -1,5 +1,6 @@
 ﻿using System.ServiceModel;
 using System.Threading.Tasks;
+using CW.Sample.WCF.WcfExampleService.Config;
 using CW.Sample.WCF.WcfExampleService.Models;
 
 namespace CW.Sample.WCF.WcfExampleService.Interface
