@@ -1,6 +1,4 @@
-﻿using System;
-using System.ServiceModel;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using CW.Sample.WCF.WcfExampleService.Client;
 using CW.Sample.WCF.WcfExampleService.Host;
 using CW.Sample.WCF.WcfExampleService.Models;
@@ -28,41 +26,11 @@ namespace CW.Sample.WCF.WcfExampleService.UnitTests
         }
 
 
-        /// <summary>
-        /// Important, this test case only throws an exception, when StartHostAndClient_SimpleSyncMethodSyncCallWithAsync_ThrowsException has async 
-        /// and calss SimpleSyncMethod called sync.
-        /// </summary>
-        [Test]
-        public async void StartHostAndClient_SimpleSyncMethodSyncCallWithAsync_ThrowsException()
-        {
-            using (var host = new WcfExampleServiceHost("localhost:10000"))
-            {
-                host.Start();
-
-                var client = new WcfExampleServiceAsyncClient("localhost:10000");
-                SimpleSyncMethodResponseModel responseSimpleSyncMethod = null;
-                Assert.Throws<CommunicationException>(() =>
-                    {
-                        try
-                        {
-                            responseSimpleSyncMethod = client.SimpleSyncMethod(new SimpleSyncMethodRequestModel { Message = "Hello World" });        
-                        }
-                        catch (Exception ex)
-                        {
-                            throw;
-                        }
-                        
-                    });
-                
-                Assert.IsNull(responseSimpleSyncMethod);
-
-                host.Close();
-            }
-        }
+       
 
         /// <summary>
         /// Very important, if host is started on same thread as client, and client is called on Sync method, then it will time out.
-        /// See StartHostAndClient_SimpleSyncMethodSyncCallWithAsync_ThrowsException.
+        /// See WcfExampleServiceUnitTestsProblem -> StartHostAndClient_SimpleSyncMethodSyncCallWithAsync_ThrowsException.
         /// Solution is to start Host on another thread.
         /// </summary>
         [Test]
