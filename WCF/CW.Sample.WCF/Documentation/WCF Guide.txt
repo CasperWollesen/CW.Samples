@@ -1,0 +1,4 @@
+﻿Todo:
+Create UnitTest
+Create Client BaseClass for automaticly create tcp binding.
+Create Server BaseClass for automaticly create tcp binding.

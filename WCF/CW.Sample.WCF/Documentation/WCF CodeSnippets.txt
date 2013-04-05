@@ -1,0 +1,6 @@
+﻿ Task<PassValueResponse> r = client.PassValueAsync(new PassValueRequest { Size = 1000000});
+ while (!r.IsCompleted)
+ {
+	_InfoLabel.Content = DateTime.Now + ":" + DateTime.Now.Millisecond;
+	await Task.Factory.StartNew( () => System.Threading.Thread.Sleep(100));
+ }
