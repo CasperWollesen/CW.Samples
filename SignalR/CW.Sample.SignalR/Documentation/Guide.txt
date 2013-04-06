@@ -5,3 +5,5 @@ Install-Package Microsoft.Owin.Host.HttpListener -pre
 Install-Package Microsoft.AspNet.SignalR.Owin
 
 NuGet package: Microsoft.AspNet.SignalR.Client
+
+Changed #1 (Localcommit 1)
