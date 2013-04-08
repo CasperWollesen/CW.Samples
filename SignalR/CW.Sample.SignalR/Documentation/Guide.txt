@@ -1,10 +1,10 @@
-﻿https://github.com/SignalR/SignalR/wiki/SignalR-Client
+﻿See: https://github.com/CasperWollesen/SignalR.Samples
+Have a SelfHost, Console and Wpf client.
+
+https://github.com/SignalR/SignalR/wiki/SignalR-Client
 
 Install-Package Microsoft.Owin.Hosting -pre
 Install-Package Microsoft.Owin.Host.HttpListener -pre
 Install-Package Microsoft.AspNet.SignalR.Owin
 
 NuGet package: Microsoft.AspNet.SignalR.Client
-
-Changed #1 (Localcommit 1)
-Changed #2 (Localcommit 2)

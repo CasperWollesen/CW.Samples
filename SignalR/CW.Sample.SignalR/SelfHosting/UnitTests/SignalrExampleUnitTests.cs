@@ -13,11 +13,14 @@ namespace CW.Sample.SignalR.SelfHosting.UnitTests
             var url = "http://localhost:8083/";
             var host = new SignalrExampleHost(url);
             host.Start(true);
+         
+            var client1 = new SignalrExampleClient(url, "Client 1 - !Subscribe Broadcast", true);
+            await client1.Initialize(true);
 
-            
-            var client1 = new SignalrExampleClient(url, "Client 1");
-            await client1.Initialize();
+            // var client2 = new SignalrExampleClient(url, "Client 2 - Subscribe Broadcast");
+            // await client2.Initialize(true);
 
+            /*
             SimpleSignalrMethodResponseModel r1 = await client1.SimpleSignalrMethod(new SimpleSignalrMethodRequestModel
                                                 {
                                                     Message = "Hello world #1, " + DateTime.Now
@@ -27,15 +30,19 @@ namespace CW.Sample.SignalR.SelfHosting.UnitTests
             {
                 Message = "Hello world #2, " + DateTime.Now
             });
-
+            */
+            
             var b1 = await client1.BroadcastSignalrMethod(new BroadcastSignalrMethodModel { Message = "Hello world #1, " + DateTime.Now });
-            var b2 = await client1.BroadcastSignalrMethod(new BroadcastSignalrMethodModel { Message = "Hello world #2, " + DateTime.Now });
+            // var b2 = await client1.BroadcastSignalrMethod(new BroadcastSignalrMethodModel { Message = "Hello world #2, " + DateTime.Now });
           
-            System.Threading.Thread.Sleep(15000);
-
+            System.Threading.Thread.Sleep(5000);
 
             client1.Connection.Disconnect();
+
+            client1.Active = false;
             host.Active = false;
+
+            client1.Thread.Join();
             host.Thread.Join();
         }
 
