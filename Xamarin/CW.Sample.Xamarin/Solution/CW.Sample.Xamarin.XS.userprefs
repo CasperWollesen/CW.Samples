@@ -1,0 +1,23 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Casper Wollesen’s iPhone" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../CW.IOS.SingleViewApplication/Entitlements.plist">
+    <Files>
+      <File FileName="../CW.IOS.StoryboardSingleViewApplication/CW.IOS.StoryboardSingleViewApplicationViewController.cs" Line="32" Column="1" />
+      <File FileName="../CW.IOS.StoryboardSingleViewApplication/CW.IOS.StoryboardSingleViewApplicationViewController.designer.cs" Line="31" Column="5" />
+      <File FileName="../CW.IOS.StoryboardSingleViewApplication/Entitlements.plist" />
+      <File FileName="../CW.IOS.StoryboardSingleViewApplication/Info.plist" />
+      <File FileName="../CW.IOS.StoryboardSingleViewApplication/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="../CW.IOS.StoryboardSingleViewApplication/Main.cs" Line="1" Column="1" />
+      <File FileName="../CW.IOS.SingleViewApplication/CW_IOS_SingleViewApplicationViewController.designer.cs" Line="1" Column="1" />
+      <File FileName="../CW.IOS.SingleViewApplication/CW_IOS_SingleViewApplicationViewController.cs" Line="38" Column="4" />
+      <File FileName="../CW.IOS.SingleViewApplication/Entitlements.plist" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.CW.IOS.StoryboardSingleViewApplication>
+    <MonoDevelop.MacDev.AppleDevelopmentTeam DeveloperId="2HVXQJ4DA8" TeamId="8K76PET83J" />
+  </MonoDevelop.Ide.ItemProperties.CW.IOS.StoryboardSingleViewApplication>
+</Properties>
