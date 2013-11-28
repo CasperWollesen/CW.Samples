@@ -13,7 +13,13 @@ namespace CW.IOS.SingleViewApplication
 	partial class CW_IOS_SingleViewApplicationViewController
 	{
 		[Outlet]
+		MonoTouch.UIKit.UIButton _addControlToDynamicViewButton { get; set; }	
+
+		[Outlet]
 		MonoTouch.UIKit.UIButton _clickOnMeButton { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIView _dynamicView { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UIButton _notificationButton { get; set; }
@@ -31,11 +37,6 @@ namespace CW.IOS.SingleViewApplication
 				_clickOnMeButton = null;
 			}
 
-			if (_notificationTextField != null) {
-				_notificationTextField.Dispose ();
-				_notificationTextField = null;
-			}
-
 			if (_notificationButton != null) {
 				_notificationButton.Dispose ();
 				_notificationButton = null;
@@ -44,6 +45,21 @@ namespace CW.IOS.SingleViewApplication
 			if (_notificationMesssageTextField != null) {
 				_notificationMesssageTextField.Dispose ();
 				_notificationMesssageTextField = null;
+			}
+
+			if (_notificationTextField != null) {
+				_notificationTextField.Dispose ();
+				_notificationTextField = null;
+			}
+
+			if (_dynamicView != null) {
+				_dynamicView.Dispose ();
+				_dynamicView = null;
+			}
+
+			if (_addControlToDynamicViewButton != null) {
+				_addControlToDynamicViewButton.Dispose ();
+				_addControlToDynamicViewButton = null;
 			}
 		}
 	}

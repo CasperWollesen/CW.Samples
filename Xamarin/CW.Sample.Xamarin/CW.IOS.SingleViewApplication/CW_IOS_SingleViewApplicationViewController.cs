@@ -70,6 +70,19 @@ namespace CW.IOS.SingleViewApplication
 			// Perform any additional setup after loading the view, typically from a nib.
 			_clickOnMeButton.TouchDown += ActionClickOnMeTouchDown;
 			_notificationButton.TouchDown += ActionNotificationTouchDown;
+			_addControlToDynamicViewButton.TouchDown += ActionAddToDynamicViewTouchDown;
+		}
+
+		int _dynamicButtonCount = 0;
+		void ActionAddToDynamicViewTouchDown (object sender, EventArgs e)
+		{
+			var btn = new UIButton (UIButtonType.System);
+			btn.TouchDown += HandleTouchDown;
+			btn.SetTitle ("Dynamic Button", UIControlState.Normal);
+			btn.Frame = new RectangleF (0, (30 * _dynamicButtonCount), 300, 30);
+			_dynamicView.AddSubview ( btn );
+
+			_dynamicButtonCount++;
 		}
 
 		int _notificationCount;
@@ -102,6 +115,15 @@ namespace CW.IOS.SingleViewApplication
 			else
 			{
 				_notificationButton.SetTitle ("Failed", UIControlState.Normal);
+			}
+		}
+
+		void HandleTouchDown (object sender, EventArgs e)
+		{
+			var uiButton = sender as UIButton;
+			if(uiButton != null)
+			{
+				uiButton.SetTitle (DateTime.Now.ToString (), UIControlState.Normal);
 			}
 		}
 	}

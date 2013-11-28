@@ -6,7 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CW_IOS_SingleViewApplicationViewController">
             <connections>
+                <outlet property="_addControlToDynamicViewButton" destination="HWX-Tb-vFf" id="HgZ-0p-x0K"/>
                 <outlet property="_clickOnMeButton" destination="6R0-bT-Oel" id="0iY-kp-a2z"/>
+                <outlet property="_dynamicView" destination="4rN-aP-IWs" id="LnP-p9-7bg"/>
                 <outlet property="_notificationButton" destination="yBw-zn-QKl" id="rOm-qD-Z8L"/>
                 <outlet property="_notificationMesssageTextField" destination="EQW-Cp-L5K" id="Bpe-aA-dJL"/>
                 <outlet property="_notificationTextField" destination="pgN-xZ-RGi" id="M49-Rj-G8R"/>
@@ -19,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6R0-bT-Oel">
-                    <rect key="frame" x="20" y="20" width="69" height="30"/>
+                    <rect key="frame" x="9" y="20" width="69" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Thread">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,6 +60,18 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" id="4rN-aP-IWs">
+                    <rect key="frame" x="20" y="228" width="280" height="139"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.88589561793413385" green="0.92786175270000004" blue="0.01556757407317727" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HWX-Tb-vFf">
+                    <rect key="frame" x="20" y="375" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Add">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
