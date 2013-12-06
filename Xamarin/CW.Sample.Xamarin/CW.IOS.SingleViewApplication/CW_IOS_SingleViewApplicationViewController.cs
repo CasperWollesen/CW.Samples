@@ -24,7 +24,7 @@ namespace CW.IOS.SingleViewApplication
 			// Release any cached data, images, etc that aren't in use.
 		}
 
-		int _counter;
+	    int _counter;
 		System.Threading.Thread _thread;
 		void ActionClickOnMeTouchDown (object sender, EventArgs e)
 		{
@@ -63,7 +63,9 @@ namespace CW.IOS.SingleViewApplication
 			}
 		}
 
-		public override void ViewDidLoad ()
+        
+
+	    public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 			
