@@ -48,8 +48,8 @@ namespace CW.IOS.SingleViewApplication
 
 			return true;
 		}
-
-		public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
+        
+	    public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
 		{
 			// show an alert
 			new UIAlertView(notification.AlertAction, notification.AlertBody, null, "OK", null).Show();
