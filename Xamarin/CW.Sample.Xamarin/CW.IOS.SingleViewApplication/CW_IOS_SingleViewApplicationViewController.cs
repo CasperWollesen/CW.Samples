@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using CW.IOSLibrary;
 
 namespace CW.IOS.SingleViewApplication
 {
@@ -123,7 +124,7 @@ namespace CW.IOS.SingleViewApplication
 			var uiButton = sender as UIButton;
 			if(uiButton != null)
 			{
-				uiButton.SetTitle (DateTime.Now.ToString (), UIControlState.Normal);
+				uiButton.SetTitle ( CwDateTime.Now().ToString (), UIControlState.Normal);
 			}
 		}
 	}

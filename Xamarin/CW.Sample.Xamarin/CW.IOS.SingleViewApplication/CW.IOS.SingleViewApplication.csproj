@@ -112,4 +112,10 @@
     <InterfaceDefinition Include="CW_IOS_SingleViewApplicationViewController_iPad.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Solution\CW.IOSLibrary\CW.IOSLibrary.csproj">
+      <Project>{00B46918-1961-4865-8202-87174D22A471}</Project>
+      <Name>CW.IOSLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

@@ -1,24 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina.7.0" />
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="../CW.IOS.StoryboardSingleViewApplication/CW.IOS.StoryboardSingleViewApplicationViewController.cs" Line="1" Column="1" />
-      <File FileName="../CW.IOS.StoryboardSingleViewApplication/CW.IOS.StoryboardSingleViewApplicationViewController.designer.cs" Line="1" Column="1" />
-      <File FileName="../CW.IOS.StoryboardSingleViewApplication/Entitlements.plist" />
-      <File FileName="../CW.IOS.StoryboardSingleViewApplication/Info.plist" />
-      <File FileName="../CW.IOS.StoryboardSingleViewApplication/AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="../CW.IOS.StoryboardSingleViewApplication/Main.cs" Line="1" Column="1" />
-      <File FileName="../CW.IOS.SingleViewApplication/CW_IOS_SingleViewApplicationViewController.designer.cs" Line="1" Column="1" />
-      <File FileName="../CW.IOS.SingleViewApplication/CW_IOS_SingleViewApplicationViewController.cs" Line="102" Column="60" />
-      <File FileName="../CW.IOS.SingleViewApplication/Entitlements.plist" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="CW.IOS.SingleViewApplication" expanded="True">
-            <Node name="ComponentReferenceFolder" selected="True" />
+          <Node name="CW.IOS.StoryboardSingleViewApplication" expanded="True">
+            <Node name="References" expanded="True">
+              <Node name="monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065" selected="True" />
+            </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

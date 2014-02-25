@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CW.IOS.StoryboardSingleView
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CW.IOS.SingleViewApplication", "..\CW.IOS.SingleViewApplication\CW.IOS.SingleViewApplication.csproj", "{2794D94B-79CD-4247-B2EE-3E874A7DDB5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CW.IOSLibrary", "CW.IOSLibrary\CW.IOSLibrary.csproj", "{00B46918-1961-4865-8202-87174D22A471}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -15,6 +17,18 @@ Global
 		AppStore|iPhone = AppStore|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00B46918-1961-4865-8202-87174D22A471}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{00B46918-1961-4865-8202-87174D22A471}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{00B46918-1961-4865-8202-87174D22A471}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{00B46918-1961-4865-8202-87174D22A471}.AppStore|iPhone.Build.0 = Release|Any CPU
+		{00B46918-1961-4865-8202-87174D22A471}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{00B46918-1961-4865-8202-87174D22A471}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{00B46918-1961-4865-8202-87174D22A471}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{00B46918-1961-4865-8202-87174D22A471}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{00B46918-1961-4865-8202-87174D22A471}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{00B46918-1961-4865-8202-87174D22A471}.Release|iPhone.Build.0 = Release|Any CPU
+		{00B46918-1961-4865-8202-87174D22A471}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{00B46918-1961-4865-8202-87174D22A471}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{2794D94B-79CD-4247-B2EE-3E874A7DDB5A}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
 		{2794D94B-79CD-4247-B2EE-3E874A7DDB5A}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
 		{2794D94B-79CD-4247-B2EE-3E874A7DDB5A}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
