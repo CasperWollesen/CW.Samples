@@ -111,7 +111,6 @@
     <InterfaceDefinition Include="CW_IOS_SingleViewApplicationViewController_iPhone.xib" />
     <InterfaceDefinition Include="CW_IOS_SingleViewApplicationViewController_iPad.xib" />
   </ItemGroup>
-<<<<<<< HEAD
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Solution\CW.IOSLibrary\CW.IOSLibrary.csproj">
@@ -119,7 +118,4 @@
       <Name>CW.IOSLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-=======
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
->>>>>>> f554d6ce85b24897aafb1a6e86f79958e97961cb
 </Project>

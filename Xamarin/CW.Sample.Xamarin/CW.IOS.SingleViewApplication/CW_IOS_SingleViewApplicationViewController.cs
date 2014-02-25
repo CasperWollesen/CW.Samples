@@ -81,7 +81,7 @@ namespace CW.IOS.SingleViewApplication
 		{
 			var btn = new UIButton (UIButtonType.System);
 			btn.TouchDown += HandleTouchDown;
-			btn.SetTitle ("Dynamic Button", UIControlState.Normal);
+			btn.SetTitle ("Dynamic Button v2", UIControlState.Normal);
 			btn.Frame = new RectangleF (0, (30 * _dynamicButtonCount), 300, 30);
 			_dynamicView.AddSubview ( btn );
 
