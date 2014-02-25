@@ -2,13 +2,15 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina.7.0" />
   <MonoDevelop.Ide.Workbench ActiveDocument="../CW.IOS.SingleViewApplication/CW_IOS_SingleViewApplicationViewController.cs">
     <Files>
-      <File FileName="CW.IOSLibrary/EmptyClass.cs" Line="1" Column="1" />
-      <File FileName="CW.IOSLibrary/CW.IOSLibrary.csproj" Line="1" Column="1" />
-      <File FileName="../CW.IOS.SingleViewApplication/CW_IOS_SingleViewApplicationViewController.cs" Line="127" Column="8" />
+      <File FileName="../CW.IOS.SingleViewApplication/CW_IOS_SingleViewApplicationViewController.cs" Line="84" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="CW.IOS.SingleViewApplication" expanded="True">
+            <Node name="CW_IOS_SingleViewApplicationViewController.cs" selected="True" />
+          </Node>
+        </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />
